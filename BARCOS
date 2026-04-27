@@ -1,0 +1,17 @@
+barcos = [
+    {"posiciones": [(1,1), (1,2)], "impactos": [(1,1)]},
+    {"posiciones": [(3,3)], "impactos": [(3,3)]},
+    {"posiciones": [(5,5), (5,6)], "impactos": []}
+]
+
+def contar_barcos_restantes(barcos):
+    restantes = 0
+    
+    for barco in barcos:
+        if not esta_hundido(barco):
+            restantes += 1
+            
+    return restantes
+
+def esta_hundido(barco):
+    return set(barco["posiciones"]) == set(barco["impactos"])
